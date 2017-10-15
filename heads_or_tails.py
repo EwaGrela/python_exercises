@@ -4,13 +4,15 @@ simple game of coin tossing
 from random import randint
 from time import sleep
 results = ["heads", "tails"];
+options = {"H": "heads", "T":"tails"}
+print len(options)
 bad_news = "You poor soul...so sorry..."
 good_news = "You won! Yay!"
 tie = "It's a tie"
 def play_game():
 	print "Welcome to head or tails!"
-	user_choice_index = int(raw_input("Heads or tails? Choose 0 for heads and 1 for tails: "))
-	user_choice = results[user_choice_index]
+	user_choice = raw_input("Heads or tails? Choose H for heads and T for tails: ").upper()
+	user_choice = options[user_choice]
 	print "You chose %r" % user_choice
 	print "Wait for the computer to decide..."
 	computer_choice_index = randint(0, len(results)-1)

@@ -4,7 +4,7 @@ some exercises about dictionaries in python as well as saving data
 # starting real simple, just taking data from a simple dictionary
 # then putting the data in a json file and then using that data
 import json
-
+from collections import Counter
 birthdates = {
 "Ewa": "03/02/1983",
 "Maciej": "06/12/1984",
@@ -63,4 +63,40 @@ def find_books_by_author(lib):
    print "No books by this author"
 
 find_books_by_author(books)
+#lets check how many people have birthday in February
+
+with open("birthdates.json", "r") as my_file:
+  dates = json.load(my_file)
+print dates.values()
+months = [];
+year = {
+"January": 1,
+"February":2,
+"March":3,
+"April": 4,
+"May":5,
+"June":6,
+"July":7,
+"August":8,
+"September":9,
+"October":10,
+"November":11,
+"December":12
+}
+
+for item in dates.values():
+   item = int(item[3:5])
+   months.append(item)
+print months
+print year
+
+def how_many_birthdays(dic, lis):
+  month = raw_input("Enter a month name: ").capitalize()
+  month = dic[month]
+  count = 0;
+  for item in lis:
+    if item ==month:
+      count +=1
+  return count
+print how_many_birthdays(year, months);
   

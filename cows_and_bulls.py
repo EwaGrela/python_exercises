@@ -9,7 +9,6 @@ import random
 
 computer_input = str(random.randint(1000,9999))
 user_input = raw_input("Enter a 4-digit number: ")
-# test_input = raw_input("Enter another 4-digit number: ")
 
 def play_game(user, comp):
   cows = 0
@@ -20,6 +19,6 @@ def play_game(user, comp):
       cows +=1
     elif user[i] in comp:
       bulls +=1 
-  print "You have %s cows" % cows
-  print "You have %s bulls" % bulls
-play_game(user_input, computer_input) # remeber to change test to computer inpur
+  print "You have %s cow/s" % cows
+  print "You have %s bull/s" % bulls
+play_game(user_input, computer_input)

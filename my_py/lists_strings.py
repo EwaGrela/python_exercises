@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*
 """
 Given a string, return a string where for every char in the original, there are two chars.
 """
@@ -121,13 +122,55 @@ print(count_evens([2, 2, 0]))
 print(count_evens([3,4,5,8,7,3]))
 
 """
-Given an array length 1 or more of ints, 
-return the difference between the largest and smallest values in the array. 
-big_diff([10, 3, 5, 6]) → 7
-big_diff([7, 2, 10, 9]) → 8
-big_diff([2, 10, 7, 2]) → 8
+Given a string and a non-negative int n, return a larger string that is n copies of the original string.
+
+string_times('Hi', 2) → 'HiHi'
+string_times('Hi', 3) → 'HiHiHi'
+string_times('Hi', 1) → 'Hi'
 """
 
-def big_diff(nums):
-  return max(nums) - min(nums)
-print(big_diff([10, 3, 5, 6]))
+def string_times(str, n):
+  return str*n
+print(string_times("hi", 5))
+"""
+Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars, 
+or whatever is there if the string is less than length 3. Return n copies of the front;
+
+front_times('Chocolate', 2) → 'ChoCho'
+front_times('Chocolate', 3) → 'ChoChoCho'
+front_times('Abc', 3) → 'AbcAbcAbc'
+"""
+def front_times(str, n):
+  if len(str)>=3:
+    return str[0:3]*n
+  else:
+    return str*n
+print(front_times("hi", 5))
+print(front_times("chocoloco", 5))
+"""
+Given a string, return a new string made of every other char 
+starting with the first, so "Hello" yields "Hlo".
+string_bits('Hello') → 'Hlo'
+string_bits('Hi') → 'H'
+string_bits('Heeololeo') → 'Hello'
+"""
+def string_bits(str):
+  return str[0::2]
+print(string_bits("hello"))
+print(string_bits("lala"))
+
+"""
+Given a non-empty string like "Code" return a string like "CCoCodCode".
+
+string_splosion('Code') → 'CCoCodCode'
+string_splosion('abc') → 'aababc'
+string_splosion('ab') → 'aab'
+"""
+def string_splosion(str):
+  goal ="";
+  x =0;
+  while x<len(str)+1:
+    goal = goal + str[0:x]
+    x+=1
+  return goal
+print(string_splosion("abc"))

@@ -174,3 +174,23 @@ def string_splosion(str):
     x+=1
   return goal
 print(string_splosion("abc"))
+
+"""
+Given an array of ints, return True if the sequence of numbers 1, 2, 3 
+appears in the array somewhere.
+
+array123([1, 1, 2, 3, 1]) → True
+array123([1, 1, 2, 4, 1]) → False
+array123([1, 1, 2, 1, 2, 3]) → True
+"""
+def array123(nums):
+  nums = "".join(map(str, nums))
+  sub ="123"
+  for i in range(len(nums)):
+    if sub in nums and len(nums)>0:
+      return True
+    else:
+      return False
+
+print(array123([0,1,2,3,5]))
+print(array123([1,2]))
